@@ -12,6 +12,22 @@ services:
       # O valor é o "container_name" definido no docker-compose.yaml do rabbitmq
       RABBITMQ_HOST: rabbitmq
 
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - 9306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+
 networks:
   rabbitmq_network:
     external: true
