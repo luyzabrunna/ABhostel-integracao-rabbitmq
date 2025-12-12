@@ -1,0 +1,394 @@
+/* Botões do admin */
+.acoes-admin {
+    margin-top: 10px;
+}
+
+.btn-editar, .btn-excluir {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.btn-editar {
+    background: #0077ff;
+    color: #fff;
+}
+
+.btn-excluir {
+    background: #d60000;
+    color: #fff;
+}
+
+.btn-excluir:hover {
+    background: #a30000;
+}
+
+/*paleta de cores*/
+:root{
+    --marrom-escuro: #291C0E; 
+    --marrom-medio: #6E473B;
+    --marrom-claro: #A78D78;
+    --bege-medio: #BEB5A9;
+    --bege-claro: #E1D4C2;
+    --texto-escuro: #2B1F18;
+    --texto-claro: #8e7563;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
+header {
+  position: fixed;
+  top: 0;
+  background-color: #e1d4c2;
+  height: 60px;
+  width: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 140px;
+  cursor: pointer;
+  margin-left: -11px;
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-links a {
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
+  color: white;
+}
+
+.btn-login {
+  background-color: white;
+  color: #4a3c2f;
+  font-weight: 200;
+  font-family: "Nunito", sans-serif;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 12px;
+}
+
+.btn-login:hover {
+  background-color: #A78D78;
+}
+
+/* ÍCONE MENU MOBILE */
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background-color: #a78d78;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-links a {
+  display: block;
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-social a {
+  color: white;
+  font-size: 20px;
+}
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* ==========================
+    LISTAR IMÓVEIS
+========================== */
+.lista-imoveis {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  justify-content: space-between;
+  padding: 0 36px;
+}
+
+
+.coluna-esquerda {
+  flex-basis: 70%;
+}
+
+.coluna-direita {
+  flex-basis: 25%;
+}
+
+.coluna-esquerda h1 {
+  color:white;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 30px;
+}
+
+.imovel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 0;
+  border-top: 1px solid var(--bege-medio);
+  gap: 5px;
+}
+
+.imovel-img {
+  flex-basis: 35%;
+  max-width: 35%;
+}
+
+.imovel-info {
+  flex-basis: 60%;
+  color: #7a6a5a;
+}
+
+.imovel-img img {
+  width: 110%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
+
+.imovel-info h3{
+  font-size: 22px;
+  font-weight: 600;
+  margin: 4px 0;
+  color: #4a3c2f;
+}
+
+.imovel-info i {
+  font-size: 18px;
+  color: yellow;
+  margin: 10px 1px;
+}
+
+.imovel-valor {
+  text-align: right;
+}
+
+.imovel-valor h4 {
+  font-size: 20px;
+  padding: 5px 0 5px 0;
+  color: #4a3c2f;
+}
+
+.imovel-valor h4 span {
+  font-size: 16px;
+  font-weight: 400;
+  color: #7a6a5a;
+}
+
+/* ==========================
+    Filtros Laterais
+========================== */
+
+.barra-lateral {
+  border: 1px solid var(--bege-medio);
+  border-radius: 12px;
+  margin-top: 30px;
+  padding: 20px 30px;
+}
+
+.barra-lateral h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.barra-lateral h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px 0 10px 0;
+  color: #4a3c2f;
+}
+
+.filtro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--marrom-escuro);
+}
+
+.filtro p {
+  flex: 1;
+  font-family: "Nunito", sans-serif;
+}
+.filtro input {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.filtro select {
+  margin-right: 15px;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid var(--bege-medio);
+  border-radius: 6px;
+  padding: 10px;
+  outline: none;
+}
+
+.barra-lateral-link a {
+  text-align: right;
+  margin: 20px 0;
+}
+.barra-lateral-link a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #4a3c2f;
+}
+
+.barra-lateral button {
+  width: 100%;
+  background-color: var(--marrom-claro);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.barra-lateral button:hover {
+  background-color: var(--texto-claro);
+}
+
+/* ==========================
+   RESPONSIVO — MENU MOBILE (igual ao cadastro)
+========================== */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .btn.open {
+    display: block;
+  }
+
+  /* Ajustes extras para melhor visual em mobile */
+  .lista-imoveis {
+    padding: 0 16px;
+  }
+
+  .coluna-esquerda,
+  .coluna-direita {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .imovel {
+    flex-direction: column;
+  }
+
+  .imovel-img,
+  .imovel-info {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .imovel-valor {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,446 @@
+:root {
+    --marrom-escuro: #291C0E;
+    --marrom-medio:  #6E473B;
+    --marrom-claro:  #A78D78;
+    --bege-medio:    #BEB5A9;
+    --bege-claro:    #E1D4C2;
+    --texto-escuro:  #2B1F18;
+    --radius: 14px;
+    --max-width-card: 720px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+  width: 100%;
+  height: 100%;
+  border-radius: 120%;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
+header {
+  position: fixed;
+  top: 0;
+  background-color: #e1d4c2;
+  height: 60px;
+  width: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 140px;
+  cursor: pointer;
+  margin-left: -11px;
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-links a {
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
+  color: white;
+}
+
+.btn-login {
+  background-color: white;
+  color: #4a3c2f;
+  font-weight: 200;
+  font-family: "Nunito", sans-serif;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 12px;
+}
+
+.btn-login:hover {
+  background-color: #A78D78;
+}
+
+/* ÍCONE MENU MOBILE */
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background-color: #a78d78;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-links a {
+  display: block;
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-social a {
+  color: white;
+  font-size: 20px;
+}
+
+
+/*html,body {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemfont, "Segoe UI", roboto, sans-serif;
+    background: var(--bege-claro);
+    color: var(--texto-escuro);
+    line-height: 1.5;
+}
+
+/* Centraliza o card */
+.page-wrapper{
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+
+.card {
+    width: 100%;
+    max-width: var(--max-width-card);
+    background: linear-gradient(180deg, rgba(190,181,169,0.9), rgba(167,141,120,0.9));
+    border-radius: calc(var(--radius)*1.2);
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(41,28,14,0.12); /*Sombra suave*/
+    display: flex;
+    flex-direction: column;
+    gap: 24px; 
+}
+
+/*Título principal.*/
+.card h1 {
+    text-align: center; /*centraliza*/
+    font-size: 1.75rem;
+    color: white; /*espçamento embaixo*/
+    margin-bottom: 16px;
+}
+
+/*seção e formulario*/
+.section-title {
+    font-size: 1.25rem;
+    color: white;
+    margin: 24px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(41,28,14,0.1);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+/*rotulos (label) do campo*/
+label {
+    display: block; /*ocupa toda a linha*/
+    font-size: 0.875rem;
+    margin-bottom: 6px;
+    color: var(--marrom-medio);
+}
+
+/*estilo comum para todos os campos editaveis */
+input, select, textarea {
+    width: 100%; /*ocupa toda a largura do grupo*/
+    padding: 12px 14px; /*espaço interno*/
+    border-radius: 10px; /*cantos arrendodados*/
+    border: 1.5px solid rgba(41,28,14,0.12);
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+    color: var(--marrom-escuro);
+}
+
+/*grupo de checkboxes*/
+fieldset {
+    border: 1px solid rgba(41,28,14,0.1);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+fieldset legend {
+    font-weight: 600;
+    color: var(--marrom-medio);
+    padding: 0 8px;
+    font-size: 15px;
+}
+
+/*label dentro da checkboxes*/
+fieldset label {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+/*Botoes finais*/
+.form-actions{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease; /*animação suave ao passar o mouse*/
+    min-width: 180px;
+}
+
+.btn-submit {
+    background: var(--marrom-escuro);
+    color: white;
+}
+
+.btn:hover {
+  filter: brightness(1.1); /* Fica um pouco mais claro ao passar o mouse */
+}
+
+.btn-draft:hover {
+    background: #aa9e93;
+    transform: scale(1.05);
+}
+
+.btn-submit:hover {
+    background: #523a26;
+    transform: scale(1.05);
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .logo img {
+    margin-left: -35px;
+  }
+
+  .btn.open {
+    display: block;
+  }
+
+  .busca {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .busca button {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+/*responsividade*/
+@media (max-width: 375px) {
+  .page-wrapper {
+    padding: 16px 12px; /* Menos espaço nas bordas */
+  }
+
+  .card {
+    padding: 24px 16px; /* Menos padding interno */
+    border-radius: 12px; /* Borda menos arredondada */
+  }
+
+  .card h1 {
+    font-size: 1.5rem; /* 24px — menor para não ocupar muito espaço */
+  }
+
+  .section-title {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+    padding: 12px; /* Menos padding */
+  }
+
+  .btn {
+    min-width: auto; /* Remove largura mínima */
+    width: 100%; /* Ocupa toda a largura */
+  }
+
+  .form-actions {
+    flex-direction: column; /* Botões um embaixo do outro */
+  }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  .card {
+    padding: 28px;
+  }
+
+  input, select, textarea {
+    font-size: 16px; /* Mantém 16px para evitar zoom */
+  }
+
+  .btn {
+    min-width: auto;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .page-wrapper {
+    padding: 32px 24px;
+  }
+
+  .card {
+    padding: 32px;
+  }
+
+  fieldset label {
+    display: block;
+    margin-right: 0;
+  }
+
+  .btn {
+    min-width: 160px;
+  }
+}
+
+@media (min-width: 769px) {
+  .page-wrapper {
+    padding: 40px 32px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .card h1 {
+    font-size: 2rem; /* 32px */
+  }
+
+  .section-title {
+    font-size: 1.375rem; /* 22px */
+  }
+
+  input, select, textarea {
+    font-size: 1rem; /* Pode ser menor que 16px em desktop */
+  }
+
+  /* Em desktop, checkboxes podem ficar lado a lado */
+  fieldset label {
+    display: inline-block;
+  }
+
+  .btn {
+    min-width: 200px;
+  }
+
+  .form-actions {
+    flex-direction: row; /* Botões lado a lado */
+  }
+}
+
+@media (min-width: 1440px) {
+  .page-wrapper {
+    padding: 60px 48px; /* Mais espaço nas bordas */
+  }
+
+  .card {
+    max-width: 800px; /* Um pouco mais largo */
+    padding: 48px; /* Mais padding interno */
+  }
+}

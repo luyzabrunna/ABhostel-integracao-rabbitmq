@@ -1,0 +1,128 @@
+:root {
+    --marrom-escuro: #291C0E; 
+    --marrom-medio: #6E473B;
+    --marrom-claro: #A78D78;
+    --bege-medio: #BEB5A9;
+    --bege-claro: #E1D4C2;
+    --texto-escuro: #2B1F18;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bege-claro);
+}
+
+/* MENU LATERAL */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--marrom-claro);
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+}
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-sidebar {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+}
+
+.sidebar a {
+    display: block;
+    padding: 14px 25px;
+    color: var(--bege-claro);
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background: var(--marrom-medio);
+    color: #fff;
+}
+
+/* ÁREA PRINCIPAL */
+.main {
+    margin-left: 260px;
+    padding: 35px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--texto-escuro);
+    margin-bottom: 25px;
+    
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 260px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    border-left: 6px solid var(--marrom-medio);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--marrom-escuro);
+}
+
+.card p {
+    color: var(--texto-escuro);
+    margin-top: 8px;
+}
+
+.btn-marrom {
+    display: inline-block;
+    background: var(--marrom-claro);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.btn-marrom:hover {
+    background: var(--marrom-medio);
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .cards {
+        justify-content: center;
+    }
+}

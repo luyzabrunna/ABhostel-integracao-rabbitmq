@@ -1,0 +1,605 @@
+/*paleta de cores*/
+:root{
+    --marrom-escuro: #291C0E; 
+    --marrom-medio: #6E473B;
+    --marrom-claro: #A78D78;
+    --bege-medio: #BEB5A9;
+    --bege-claro: #E1D4C2;
+    --bede-escuro: #C4B69D;
+    --texto-escuro: #2B1F18;
+    --radius: 14px;
+    --max-widt-card: 720px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #e1d4c2;
+  width: 100%;
+  height: 100%;
+  border-radius: 120%;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================
+   HEADER FIXO
+========================== */
+header {
+  position: fixed;
+  top: 0;
+  background-color: #e1d4c2;
+  height: 60px;
+  width: 100%;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 140px;
+  cursor: pointer;
+  margin-left: -11px;
+}
+
+.menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-links a {
+  font-size: 14px;
+  color: white;
+  transition: 0.3s;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.menu-links a:hover,
+.menu-links a.active {
+  color: white;
+}
+
+.btn-login {
+  background-color: white;
+  color: #4a3c2f;
+  font-weight: 200;
+  font-family: "Nunito", sans-serif;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-right: 12px;
+}
+
+.btn-login:hover {
+  background-color: #A78D78;
+}
+
+/* ÍCONE MENU MOBILE */
+.btn.open {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+/* ==========================
+   MENU MOBILE
+========================== */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 260px;
+  height: 100vh;
+  background-color: #a78d78;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.4s ease;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-links a {
+  display: block;
+  color: white;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mobile-social a {
+  color: white;
+  font-size: 20px;
+}
+
+/* ==========================
+   BANNER PRINCIPAL
+========================== */
+.banner {
+  width: 95%;
+  height: 550px;
+  position: relative;
+  margin-top: 70px;
+  overflow: hidden;
+  border-radius: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.banner-primario {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  max-width: 900px;
+}
+
+.banner-primario h1 {
+  font-size: 42px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
+}
+
+.banner-primario p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* FORMULÁRIO DE BUSCA */
+.busca {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 50px;
+  padding: 6px 10px 6px 30px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.busca div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  min-width: 120px;
+}
+
+.busca label {
+  font-size: 17px;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 3px;
+}
+
+.busca input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: black;
+  background: transparent;
+}
+
+.busca button {
+  background-color: #a78d78;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.busca button:hover {
+  background-color: #8e7563;
+}
+
+/* ==========================
+   SEÇÃO IMÓVEIS
+========================== */
+.imoveis {
+  text-align: center;
+  margin: 60px auto;
+  width: 95%;
+}
+
+.imoveis h2 {
+  font-size: 26px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.imoveis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.imovel-card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.imovel-card:hover {
+  transform: translateY(-5px);
+}
+
+.imovel-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.imovel-card .info {
+  padding: 10px;
+}
+
+.imovel-card h3 {
+  font-size: 18px;
+  color: #4a3c2f;
+}
+
+.imovel-card p {
+  font-size: 14px;
+  color: #7a6a5a;
+}
+
+.price {
+  font-weight: bold;
+  color: #a78d78;
+  margin-top: 5px;
+}
+
+.favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  color: #a78d78;
+}
+
+/* ==========================
+   SEGUNDO BANNER
+========================== */
+.banner-segundo {
+  width: 95%;
+  height: 550px;
+  position: relative;
+  margin-top: 110px;
+  overflow: hidden;
+  border-radius: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+}
+
+.banner-segundo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  filter: brightness(50%);
+}
+
+.banner-secundario {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.texto-esquerda h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  color: #fff;
+}
+
+.texto-direita p {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.btn-banner {
+  background-color: #a78d78;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background-color: #a78d78;
+  color: white;
+  padding: 40px 0 20px;
+  border-radius: 40px 40px 0 0;
+}
+
+.footer-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-logo-img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  display: block;
+  margin: 5px 0;
+}
+
+.footer-social a {
+  color: white;
+}
+
+.footer-newsletter input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.footer-newsletter button {
+  background-color: #f3e6d0;
+  border: none;
+  color: #4a3c2f;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .menu-desktop {
+    display: none;
+  }
+
+  .logo img {
+    margin-left: -35px;
+  }
+
+  .btn.open {
+    display: block;
+  }
+
+  .banner-primario h1 {
+    font-size: 28px;
+  }
+
+  .busca {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .busca button {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .banner-segundo {
+    flex-direction: column;
+  }
+
+  .banner-segundo img {
+    width: 100%;
+  }
+
+  .footer-footer {
+    text-align: center;
+  }
+}
+
+/* Tablet - Ajusta para 2 linhas organizadas */
+@media (max-width: 900px) {
+  .busca {
+    padding: 16px;
+    row-gap: 18px;
+  }
+
+  .busca div {
+    flex: 1 1 45%;
+    min-width: auto;
+  }
+
+  .busca button {
+    width: 50px;
+    height: 50px;
+    flex: 1 1 100%;
+    margin-top: 5px;
+    align-self: center;
+  }
+}
+
+/* Celular - Inputs em coluna */
+@media (max-width: 600px) {
+  .busca {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 20px;
+  }
+
+  .busca div {
+    width: 100%;
+  }
+
+  .busca button {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+  }
+}
+
+/* ==========================
+  BANNER SECUNDÁRIO
+========================== */
+
+/* TABLET — entre 600px e 1024px */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .banner-segundo {
+    height: 450px; /* altura confortável */
+    padding: 40px 20px;
+  }
+
+  .banner-secundario {
+    width: 90%;
+    gap: 35px;
+  }
+
+  .texto-esquerda h2 {
+    font-size: 34px;   /* título bonito no tablet */
+    line-height: 1.2;
+  }
+
+  .texto-direita {
+    max-width: 75%;
+  }
+
+  .texto-direita p {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .btn-banner {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+/* MOBILE — até 600px */
+@media (max-width: 599px) {
+
+  .banner-segundo {
+    min-height: 420px;      /* altura mais enxuta */
+    padding: 30px 10px;     /* reduz paddings gigantes */
+  }
+
+  .banner-secundario {
+    flex-direction: column; /* força um bloco em cima do outro */
+    text-align: left;
+    gap: 15px;
+    width: 90%;
+  }
+
+  .texto-esquerda h2 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .texto-direita p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .btn-banner {
+    padding: 10px 20px;
+    font-size: 14px;
+    align-self: start; /* botão alinhado à esquerda */
+  }
+}
+/* REMOVE ESPAÇO DESNECESSÁRIO ENTRE SEÇÕES NO MOBILE */
+@media (max-width: 599px) {
+  .banner-principal,
+  .hero,
+  .primeira-secao,
+  .top-section {
+    margin-bottom: 10px ;
+    padding-bottom: 0;
+    min-height: auto;
+  }
+}
