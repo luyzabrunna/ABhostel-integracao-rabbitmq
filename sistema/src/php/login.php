@@ -29,6 +29,37 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         $_SESSION['usuario_id'] = $usuario->id;
         $_SESSION['logado'] = true;
 
+    // --- Envia notificação para RabbitMQ sobre login --- //
+    require_once __DIR__ . '/vendor/autoload.php';
+
+    use PhpAmqpLib\Connection\AMQPStreamConnection;
+    use PhpAmqpLib\Message\AMQPMessage;
+
+    try {
+    // conexão com o container RabbitMQ
+    $connection = new AMQPStreamConnection('rabbitmq', 5672, 'guest', 'guest');
+    $channel = $connection->channel();
+
+    // nome da fila usada pelo professor
+    $channel->queue_declare('fila_emails', false, true, false, false);
+
+    // dados enviados
+    $dados = [
+        "to" => $email,  
+        "subject" => "Login realizado",
+        "body" => "O usuário $email acabou de fazer login no sistema ABHostel."
+    ];
+
+    $msg = new AMQPMessage(json_encode($dados));
+    $channel->basic_publish($msg, '', 'fila_emails');
+
+    $channel->close();
+    $connection->close();
+
+    } catch (Exception $e) {
+    error_log("Erro ao enviar mensagem RabbitMQ: " . $e->getMessage());
+    }
+
         header("Location: painel.php");
         exit;
     } 

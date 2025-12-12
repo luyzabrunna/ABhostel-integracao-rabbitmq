@@ -134,33 +134,6 @@ $fotosJSON = json_encode($listaFotos);
         ':fotos' => $fotosJSON
     ]);
 
-    // ENVIO PARA RABBITMQ ------------------
-    require_once _DIR_ . '/../vendor/autoload.php';
-    use PhpAmqpLib\Connection\AMQPStreamConnection;
-    use PhpAmqpLib\Message\AMQPMessage;
-
-    try {
-    $connection = new AMQPStreamConnection('broker_mensagens', 5672, 'guest', 'guest');
-    $channel = $connection->channel();
-
-    $channel->queue_declare('imoveis', false, false, false, false);
-
-    $dadosImovel = [
-        'titulo' => $titulo,
-        'cidade' => $cidade,
-        'admin' => $_SESSION['usuario'] ?? 'admin'
-    ];
-
-    $msg = new AMQPMessage(json_encode($dadosImovel));
-    $channel->basic_publish($msg, '', 'imoveis');
-
-    $channel->close();
-    $connection->close();
-    } catch (Exception $e) {
-    error_log("Erro ao enviar mensagem para RabbitMQ: " . $e->getMessage());
-    }
-    // ------------------------------------------------------------------------
-
     $mensagem = "Imóvel cadastrado com sucesso!";
 }
 ?>
